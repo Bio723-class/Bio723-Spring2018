@@ -38,7 +38,7 @@ RStudio (http://www.rstudio.com/) is an open source integrated development envir
 The figure below illustrates the RStudio interface, in it's default configuration.  For the exercises below you'll be primarily entering commands in the "console" window. We'll review key parts of the RStudio interface in greater detail in class.
 
 ```{r, echo = FALSE, out.width = "600px", fig.align = "center", fig.cap = "RStudio window with the panes labeled", results="markup"}
-knitr::include_graphics("rstudio-panes-labeled.png")
+knitr::include_graphics("fig-rstudio-panes-labeled.png")
 ```
 
 # Entering commands in the console
@@ -280,7 +280,7 @@ R comes with fairly extensive documentation and a simple help system. You can ac
 
 
 ```{r, echo = FALSE, out.width = "600px", fig.align = "center", fig.cap = "The RStudio Help tab", results="markup"}
-knitr::include_graphics("rstudio-help.png")
+knitr::include_graphics("fig-rstudio-help.png")
 ```
 
 

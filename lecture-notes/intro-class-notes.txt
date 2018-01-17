@@ -1,0 +1,40 @@
+
+
+Introductions
+
+Course mechanics
+- Grading
+    - In class assignments
+    - Problem sets
+    - Late homework
+
+Course goals
+
+Data types
+
+Numeric
+Logical
+Characters
+
+Data structures
+
+Vectors
+Lists
+Data frames
+
+Functions
+
+Tools for Reproducible Research
+- R Markdown 
+- Git
+
+Quick tour for R and RStudio
+
+
+
+
+R libraries
+
+R and RStudio
+
+R Markdown and R Markdown Notebooks
