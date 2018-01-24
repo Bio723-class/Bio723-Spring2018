@@ -134,10 +134,10 @@ $(document).ready(function () {
 <p>Lindenmayer and colleagues (Lindenmayer DB et al. 1995, Australian Journal of Zoology 43, 449-458) studied morphological variation among populations of the mountain brushtail possum (<em>Trichosurus caninus</em>) in Australia. The investigators recorded variables about individual possum’s sex, age, where they were collected, and a range of morphological measurements.</p>
 <p>This data set is available as a Comma-Separated-Value (CSV) formatted spreadsheet via this link: * <a href="https://github.com/Bio723-class/example-datasets/raw/master/lindenmayer-possums.csv">lindemayer-possums.csv</a></p>
 <p>You can use the <code>read_csv()</code> function defined in the <code>readr</code> package (part of the <code>tidyverse</code>) to create a data frame from a CSV file .</p>
-<pre class="r"><code>&gt; library(tidyverse)
-&gt; possums &lt;- read_csv(&quot;https://tinyurl.com/lindenmayer-possums&quot;)</code></pre>
+<pre class="r"><code>library(tidyverse)
+possums &lt;- read_csv(&quot;https://tinyurl.com/lindenmayer-possums&quot;)</code></pre>
 <p>Notice that we read the CSV file directly from a remote file via a URL. If instead, you wanted to load a local file on your computer you would specify the “path” – i.e. the location on your hard drive where you stored the file. For example, here is how I would load the same file if it was stored in the standard downloads directory on my Mac laptop:</p>
-<pre class="r"><code>&gt; possums &lt;- read_csv(&quot;/Users/pmagwene/Downloads/lindenmayer-possums.csv&quot;)</code></pre>
+<pre class="r"><code>possums &lt;- read_csv(&quot;/Users/pmagwene/Downloads/lindenmayer-possums.csv&quot;)</code></pre>
 </div>
 <div id="make-your-solutions-computable" class="section level1">
 <h1>Make your solutions computable</h1>

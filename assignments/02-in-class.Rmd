@@ -10,7 +10,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, prompt = TRUE, eval = TRUE, 
+knitr::opts_chunk$set(echo = TRUE, prompt = FALSE, eval = TRUE, 
                       warning = TRUE, comment=NA, cache = FALSE,
                       fig.width = 6, fig.height = 4)
 ```
