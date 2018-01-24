@@ -24,14 +24,7 @@ Data frames
 
 Functions
 
-Tools for Reproducible Research
-- R Markdown 
-- Git
-
 Quick tour for R and RStudio
-
-
-
 
 R libraries
 
