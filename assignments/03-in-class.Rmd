@@ -48,7 +48,7 @@ This assignment uses the NC Births data set introduced in class.
       a) how many non-smoking mothers had full term babies
       b) how many non-smoking mothers had premature babies
       c) how many smoking mothers had full term babies
-      d) how many smoking mothers had full term babies. 
+      d) how many smoking mothers had premature babies. 
  
   1. Create a boxplot figure like the one below to illustrate how birth weight varies conditional on term classification (premature or full term) and mother's smoking status [1 pts]
  
