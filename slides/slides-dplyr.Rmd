@@ -31,6 +31,10 @@ Key "verbs" in the `dplyr` package:
   * `arrange()`
   * `summarize()`
   * `group_by()`
+  
+\bigskip
+
+All these functions return new data frames instead of modifying existing data frames
 
 ## `select()` subsets columns
 
@@ -72,6 +76,9 @@ filter(iris, Species == "setosa") %>% head(3)
 
 
 ```{r}
-# filter on mulitple criteria using AND logic
+# filter on mulitple criteria 
 filter(iris, Species == "setosa", Sepal.Length < 5)
 ```
+
+
+## `mutate()` 

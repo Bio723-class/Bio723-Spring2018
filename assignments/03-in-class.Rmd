@@ -40,8 +40,7 @@ This assignment uses the NC Births data set introduced in class.
   
   1.  Using the output from the previous problem, in combination with standard indexing, show how to calculate the mean birth weight of the ten lightest babies [1 pt]
   
-  1. Show how to calculate the birth weight of the ten heaviest babies [1 pt]
-
+  1. Show how to calculate the mean birth weight of the ten heaviest babies [1 pt]
 
 
   1. Write a code block that uses `group_by()` and `count()` to get the counts of cases by mother's smoking status and the baby's term status (premature or full term).  That is, we want the output to tell us four pieces of information [1 pt]
