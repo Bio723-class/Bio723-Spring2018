@@ -1,0 +1,77 @@
+---
+title: "Introduction to dplyr"
+author: "Paul M. Magwene"
+output: 
+  beamer_presentation:
+    colortheme: "beaver"
+    fonttheme: "structurebold"
+fontsize: "9pt"    
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message=FALSE, comment = "")
+options(width=60)
+```
+
+```{r}
+library(tidyverse)
+```
+
+## What is `dplyr`?
+
+`dplyr` is a package that provides a "grammar for data manipulation"
+
+\bigskip
+
+Key "verbs" in the `dplyr` package:
+
+  * `select()`
+  * `filter()`
+  * `mutate()`
+  * `arrange()`
+  * `summarize()`
+  * `group_by()`
+
+## `select()` subsets columns
+
+```{r, echo=TRUE}
+names(iris)
+```
+
+
+```{r, echo = TRUE}
+# select two columns
+select(iris, Sepal.Length, Petal.Length) %>% head(3)
+```
+
+
+```{r, echo = TRUE}
+# select everything BUT the species column
+select(iris, -Species) %>% head(3)
+```
+
+## `select()` has some specialized functions for powerful filtering
+
+```{r, echo = TRUE}
+select(iris, starts_with("Petal")) %>% head(3)
+```
+
+
+```{r, echo = TRUE}
+select(iris, ends_with("Length")) %>% head(3)
+```
+
+
+
+## `filter()` selects rows that match criteria
+
+```{r, echo = TRUE}
+# get only the I. setosa specimens
+filter(iris, Species == "setosa") %>% head(3)
+```
+
+
+```{r}
+# filter on mulitple criteria using AND logic
+filter(iris, Species == "setosa", Sepal.Length < 5)
+```
