@@ -33,11 +33,6 @@ This assignment uses the Spellman yeast gene expression data set introduced in c
 
     Write a *single code block* that shows how to go from the original data (`spellman`) to a tidy, long data frame (`spellman.final`) *in as few steps as you can while still maintaining correctnes and clarity of your code*.  Include comments where you feel they are appropriate, to explain what your code is doing. [5 pts]
 
-
-  1. Using the `spellman.final` tidy data frame you created above, create a faceted plot showing the expression of the gene YFL039C over time in each of the experimental conditions. [2 pts]
-  
-  1. YFL039C is commonly known as ACT1, and encodes the cytoskeletal protein actin. ACT1 is often used as a "housekeeping gene". Housekeeping genes are "involved in basic cell maintenance and, therefore, are expected to maintain constant expression levels in all cells and conditions" (Eisenberg 2013).  Based on the figure you created in the previous problem, under which of the experimental conditions would you consider ACT1 to serve as a useful housekeeping gene, and why? [2 pts]
-  
   
   1. Show how to find the 1000 most highly expressed genes across any of the treatments, in the data [3 pts]
 
