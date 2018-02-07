@@ -1,0 +1,69 @@
+---
+title: "Bio 723: Problem Set 01"
+output:
+  html_document:
+    highlight: default
+    theme: readable
+    fig_caption: true
+    toc: yes
+    toc_depth: 4
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Make your solutions computable
+
+For each of the problem below (except in cases where you are asked to discuss your interpretaion) write R code blocks that will **compute appropriate solutions**. A good rule of thumb for judging whether your solution is appropriately "computable" is to ask yourself "If I added additional observations to this data set, would my code still compute the right solution?"
+
+**Don't forget to include your library calls in your R Markdown document**
+
+# Data set: Causton et al, 2001
+
+Another early study of genome wide patterns of gene expression was that of Causton et al. 2001, who studied how  gene expression changed over time in yeast cells in response to a variety of perturbations (changes in temperature, oxidation, nutrients, pH, and osmolarity).
+
+ * Causton HC, Ren B, Koh SS, Harbison CT, Kanin E, Jennings EG, Lee TI, True HL, Lander ES, Young RA. Remodeling of yeast genome expression in response to environmental changes. Mol Biol Cell. 2001 Feb;12(2):323-37. PubMed PMID: 11179418; PubMed Central PMCID: PMC30946.
+ 
+The authors have made available a data file that includes normalized measures of expression of ~6200 genes for multiple time points in each perturbation condition.  I've uploaded this data to Github at the location below:
+
+* [GitHub location to download Causton et al data](https://github.com/Bio723-class/example-datasets/blob/master/causton-raw.txt)
+
+Download this file to your local filesystem to carry out your analyses.
+
+## Overview of the data
+
+* ORF -- the systematic name assigned to the "open reading frame" (ORF) 
+* Gene -- the common name (if available) the ORF has been referred to by in the literature
+* Heat 0', Heat 15', Heat 30', etc -- measurements under heat treatment, made at minutes 0, 15, 30, etc.  
+* Acid 0', Acid 10', Acid 20', etc -- measurements under acidic conditions at given time points
+* Alkali 0', Alkali 10', etc -- measurements under alkali conditions at given time points
+* Peroxide 0', etc -- measurements under hydrogen peroxide treatment at given gime points
+* NaCL 0', etc -- measurements under NaCL treatment (osmotic stress) at given gime points
+* Sorbitol 0', etc -- measurements under Sorbitol treatment (sorbitol) at given gime points
+
+Note that for each of the experimental conditions that zero time points are replicated -- e.g. `Heat 0' (A)` and `Heat 0' (B)`.
+
+# Reading the data
+
+If you open the Causton data in a spreadsheet or text editor you will see that there are a number of columns with with identical headings (`Call:1=P, 0=A`) and there are some quotation marks in the header names.  The`readr::read_tsv` function we've been using struggles a bit to parse this file.  Instead I recommend you use the built-in `read.delim` function to read the data.
+
+```
+# change file path as appropriate
+causton <- read.delim("~/Downloads/causton-raw.txt", stringsAsFactors = FALSE)
+```
+
+ The `stringsAsFactors = FALSE` keeps the function from automatically converting columns with characters strings to R factors (e.g. ORF and Gene columns).
+
+
+# Problems
+
+1. How many rows and columns are there in the initial data frame?
+
+1. What are the names of the variables?
+
+1. The columns of the form `Call.1.P..` represent quality control information. Use the `stringr::str_detect` function (and any other functions that are useful) to count how many such columns there are.
+
+1. 
+

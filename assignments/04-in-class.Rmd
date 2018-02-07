@@ -1,0 +1,48 @@
+---
+title: "Bio 723, Lecture 04: In-class Assignment"
+output:
+  html_document:
+    highlight: default
+    theme: readable
+    fig_caption: true
+    toc: yes
+    toc_depth: 4
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, prompt = FALSE, eval = FALSE, 
+                      warning = TRUE, comment=NA, cache = FALSE,
+                      fig.width = 6, fig.height = 4)
+```
+
+# Make your solutions computable
+
+For each of the problem below (except in cases where you are asked to discuss your interpretaion) write R code blocks that will **compute appropriate solutions**. A good rule of thumb for judging whether your solution is appropriately "computable" is to ask yourself "If I added additional observations to this data set, would my code still compute the right solution?"
+
+
+# Data set: NC Births data
+
+This assignment uses the Spellman yeast gene expression data set introduced in class
+
+* https://raw.githubusercontent.com/Bio723-class/example-datasets/master/spellman-combined.txt
+
+
+# Problems
+
+  1. In the lecture notes we walked through a series of steps showing how to take the raw Spellman data and turn it into a tidy, long data frame by dropping empty and unneeded columns, reshaping, etc.  For the purposes of illustration, the exposition in the hand out out was broken into multiple code blocks and included some extra steps.  
+
+    Write a *single code block* that shows how to go from the original data (`spellman`) to a tidy, long data frame (`spellman.final`) *in as few steps as you can while still maintaining correctnes and clarity of your code*.  Include comments where you feel they are appropriate, to explain what your code is doing. [5 pts]
+
+
+  1. Using the `spellman.final` tidy data frame you created above, create a faceted plot showing the expression of the gene YFL039C over time in each of the experimental conditions. [2 pts]
+  
+  1. YFL039C is commonly known as ACT1, and encodes the cytoskeletal protein actin. ACT1 is often used as a "housekeeping gene". Housekeeping genes are "involved in basic cell maintenance and, therefore, are expected to maintain constant expression levels in all cells and conditions" (Eisenberg 2013).  Based on the figure you created in the previous problem, under which of the experimental conditions would you consider ACT1 to serve as a useful housekeeping gene, and why? [2 pts]
+  
+  
+  1. Show how to find the 1000 most highly expressed genes across any of the treatments, in the data [3 pts]
+
+  1. What is the size of the overlap between the 1000 most highly expressed genes and the 1000 most variable genes (see lecture notes) ? [2 pt]
+  
+  1. Create a heat maps depicting the time dependent expression of top 50 most highly expressed genes in the cdc15 experimental conditions, sorted vertically in descending order by maximum expression *in the cdc15 experimental conditions* (i.e. the gene with the highest overall expression in cdc15 should be at the top of the plot). [5 pts]
+  
+  
