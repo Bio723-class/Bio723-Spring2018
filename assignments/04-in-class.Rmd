@@ -20,7 +20,7 @@ knitr::opts_chunk$set(echo = TRUE, prompt = FALSE, eval = FALSE,
 For each of the problem below (except in cases where you are asked to discuss your interpretaion) write R code blocks that will **compute appropriate solutions**. A good rule of thumb for judging whether your solution is appropriately "computable" is to ask yourself "If I added additional observations to this data set, would my code still compute the right solution?"
 
 
-# Data set: NC Births data
+# Data set: Spellman gene expression
 
 This assignment uses the Spellman yeast gene expression data set introduced in class
 
