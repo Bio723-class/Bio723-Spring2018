@@ -63,7 +63,9 @@ causton <- read.delim("~/Downloads/causton-raw.txt", stringsAsFactors = FALSE)
 
 1. What are the names of the variables?
 
-1. The columns of the form `Call.1.P..` represent quality control information. Use the `stringr::str_detect` function (and any other functions that are useful) to count how many such columns there are.
+1. The columns of the form `Call.1.P..` represent quality control information. Count how many such columns there are (HINT: the `stringr::str_detect` function may be useful)
 
-1. 
+1. Create a new data frame, `causton.trim`, in which all the `Call.1.P..` have been removed.
+
+
 

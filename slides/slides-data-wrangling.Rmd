@@ -94,7 +94,7 @@ Data files you generate or will be given may...
  | $gene_p$ | $cond_{n}$ |$t_2$ |2.71         | 
 
 
-## Tidy data facilitatesvisualization and analysis with minimum code
+## Tidy data facilitates visualization and analysis with minimum code
 
 \footnotesize
 
@@ -103,7 +103,7 @@ tidy.long %>%
   filter(gene %in% genes.of.interest) %>%
   ggplot(aes(x = time, y = expression, color = gene)) +
     geom_line() + 
-    facet_wrap(~ condition")
+    facet_wrap(~ condition)
 ```
 
 \normalsize
@@ -133,7 +133,7 @@ tidy.wide %>%
   filter(!is.na(YAL022C) & !is.na(YAR018C))%>%
   ggplot(aes(x = YAL022C, y = YAR018C)) + 
     geom_point() + 
-    facet_wrap(~expt, nrow = 2, ncol = 2) 
+    facet_wrap(~ condition) 
 ```
 
 \normalsize

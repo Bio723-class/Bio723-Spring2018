@@ -1,0 +1,47 @@
+---
+title: "Bio 723, Lecture 05: In-class Assignment"
+output:
+  html_document:
+    highlight: default
+    theme: readable
+    fig_caption: true
+    toc: yes
+    toc_depth: 4
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, prompt = FALSE, eval = FALSE, 
+                      warning = TRUE, comment=NA, cache = FALSE,
+                      fig.width = 6, fig.height = 4)
+```
+
+# Make your solutions computable
+
+For each of the problem below (except in cases where you are asked to discuss your interpretaion) write R code blocks that will **compute appropriate solutions**. A good rule of thumb for judging whether your solution is appropriately "computable" is to ask yourself "If I added additional observations to this data set, would my code still compute the right solution?"
+
+
+# Problems
+
+For all of the problems that follow, your solutions should employ vector operations of the type we reviewed in lecture (dot product, vector addition, subtraction, etc). **Your answers should not employ built-in functions like `mean()`, `var()`, etc** but can include basic vector functions like `length()`.
+
+
+1. Write a function, `vec.dist()`, that takes as input two vectors, `x` and `y`, and calculates the distance between those vectors using vector operations. Your function should work with vectors of arbitrary dimension (as long as the dimension is the same for `x` and `y`) [2 pts]
+
+1. Include several test code blocks that illustrate how to use your `vec.dist()` function. Make sure you confirm the correctness of your function by applying to simple examples where you can work out the answers by hand. [1 pts]
+
+1. Write a function, `vec.angle()`, that takes as input two vectors, `x` and `y`, and calculates the angle in radians between those vectors. Include an optional boolean argument to return the angle in degrees instead of radians. [2 pts]
+
+1. Include several test code blocks that illustrate how to use your `vec.angle()` function. Make sure you confirm the correctness of your function by applying to simple examples where you can work out the answers by hand. [1 pt]
+
+1. Write functions to calculate the following univariate statistics, given an input vector `x`. As emphasized above, **do not use the built-in R functions for these statistics** in your  solutions (but feel free to compare your answers against the built-ins). Include code block illustrating the use of these functions.
+
+    a. `vec.mean` -- mean of `x` [3 pts]
+    a. `vec.var` -- sample variance of `x` [3 pts]
+    a. `vec.sd` -- sample standard deviation of `x` [3 pts]
+
+
+1. Write functions to calculate the following bivariate statistics, given input vectors `x` and `y`. As emphasized above, **do not use the built-in R functions for these statistics** as you implement your own solutions (but feel free to compare your answers against the built-ins for correctness)
+
+    a. `vec.cov` -- sample covariance of `x` and `y` [3 pts]
+    a. `vec.corr` -- sample correlation of `x` and `y` [3 pts]
+  
