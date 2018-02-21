@@ -1,0 +1,62 @@
+---
+title: "Bio 723, Lecture 06: In-class Assignment"
+output:
+  html_document:
+    highlight: default
+    theme: readable
+    fig_caption: true
+    toc: yes
+    toc_depth: 4
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, prompt = FALSE, eval = FALSE, 
+                      warning = TRUE, comment=NA, cache = FALSE,
+                      fig.width = 6, fig.height = 4)
+```
+
+# Make your solutions computable
+
+For each of the problem below (except in cases where you are asked to discuss your interpretaion) write R code blocks that will **compute appropriate solutions**. A good rule of thumb for judging whether your solution is appropriately "computable" is to ask yourself "If I added additional observations to this data set, would my code still compute the right solution?"
+
+
+# Problems
+
+For all of the problems that follow, your solutions should employ vector operations of the type we reviewed in lecture (dot product, vector addition, subtraction, etc). **Your answers should not employ built-in functions like `mean()`, `var()`, `cov()`, etc** but can include basic vector functions like `length()`.
+
+
+1. For each of the data set listed below, do the following:
+
+    * [`pollen`](https://github.com/bio304-class/bio304-fall2017/raw/master/datasets/ABD-pollen-sterility.csv): Hybrid offspring from different species are often sterile. Moyle et al. (2004) studied hybrids in the plant species *Silene*, and quantified the proportion of pollen that is sterile as a function of genetic distance.  
+
+    * [`mutations`](https://github.com/bio304-class/bio304-fall2017/raw/master/datasets/ABD-father-mutations.csv): Fathers transmit more new mutations to their offspring that do mothers, due to the fact that copying errors occur during sperm production.  There is interst in how father's age affects the number of mutations.  Kong et al. (2012) use genome sequencing of 21 father-child pairs to quantify the number of new mutations inhereited from each father.  
+
+
+
+    a. Fit the linear regression relating the response variable to the predictor variable [0.5 pt]
+  
+    a. Draw a scatter plot showing the relationship between the predictor and response variable, superimposing the linear regression line on the plot [0.5 pt]
+
+    a. Draw a residual plot [0.5 pt]
+  
+    a. Give the coefficients (slope and intercept) of the regression, in the form: $\hat{Y} = a + bX$. [0.5 pt]
+
+    a. How much of the variation in the response variable can be "explained" by variation in the explanatory variable? [0.5 pt]
+
+    a. Discuss whether you think the linear regression model is an appropriate way to model the relationship of interest.  Point to features of the data, your visualizations,  etc. to support your argument. [1 pt]
+
+
+
+1. Using vector arithmetic operations, write your own regression function (`vec.regression()`, for mean centered vectors in R [5 pts]
+
+    The function will take as it's input two vectors, $\vec{x}$ and $\vec{y}$. The function should return a list contining:
+
+      a. The mean-centered versions of these vectors
+      a. The regression coefficient $b$ in the mean centered regression equation $\vec{\widehat{y}} = b\vec{x}$
+      a. The fitted (predicted) values of $Y$ for each observed value of $X$
+      a. The residuals
+      a. The coefficient of determination, $R^2$
+
+1. Demonstrate your regression function by using it to carry out regressions of `Sepal.Length` on `Sepal.Width` separately for the `versicolor' and `virginica' specimens from the `iris` data set. Include |ggplot| created plots in which you use the `geom_point()` and `geom_abline()` functions to illustrate your calculated regression line. To test your function, compare your regression coefficients and coefficient of determination to the same values returned by the built in `lm()` function. [5 pts]
+
+

@@ -1,0 +1,61 @@
+---
+title: "Bivariate Regression Images"
+author: "Paul M. Magwene"
+
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+library(tidyverse)
+library(broom)
+```
+
+
+
+```{r}
+set.seed(20160921)
+
+npts <- 50
+X <- seq(1, 5, length.out = npts) + rnorm(npts)
+a <- 1.0
+b <- 1.5
+Y <- b*X + a + rnorm(npts, sd = 2)  
+
+df.xy <- data.frame(X = X, Y = Y)
+
+```
+
+```{r}
+p <-
+  ggplot(df.xy, aes(x = X, y = Y)) + 
+  geom_point()
+
+p
+```
+
+
+```{r}
+fit.xy <- lm(Y ~ X, data = df.xy)
+df.xy.augmented <- augment(fit.xy, df.xy)
+```
+
+```{r}
+p.fit <- 
+  ggplot(df.xy.augmented, aes(X, Y)) + 
+  geom_point(size=3) + 
+  geom_smooth(method="lm", color="red", se = FALSE, size=1.5) +
+  geom_segment(aes(xend = X, yend = .fitted), linetype="dashed") +
+  theme_classic()
+
+p.fit
+```
+
+```{r}
+ggsave("bivariate-regression-image.pdf", p.fit)
+
+```

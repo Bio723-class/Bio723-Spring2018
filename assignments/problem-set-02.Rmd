@@ -1,0 +1,32 @@
+---
+title: "Bio 723, Problem Set 02"
+output:
+  html_document:
+    highlight: default
+    theme: readable
+    fig_caption: true
+    toc: yes
+    toc_depth: 4
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, prompt = FALSE, eval = FALSE, 
+                      warning = TRUE, comment=NA, cache = FALSE,
+                      fig.width = 6, fig.height = 4)
+```
+
+# Make your solutions computable
+
+For each of the problem below (except in cases where you are asked to discuss your interpretaion) write R code blocks that will **compute appropriate solutions**. A good rule of thumb for judging whether your solution is appropriately "computable" is to ask yourself "If I added additional observations to this data set, would my code still compute the right solution?"
+
+**Don't forget to include your library calls in your R Markdown document**
+
+
+
+# Problems
+
+Using only matrix operations, write functions that calculate the following statistical matrices of interest, given an input matrix $\matrix{X}$ of type double.  Apply each of your functions to the numerical data from the `iris` data set and check the results of your functions against the built-in R functions.
+
+1. Deviates matrix [4 pts]
+1. Covariance matrix [4 pts]
+1. Correlation matrix [4 pts]
