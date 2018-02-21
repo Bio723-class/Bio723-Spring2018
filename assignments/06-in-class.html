@@ -134,7 +134,6 @@ $(document).ready(function () {
 </div>
 <div id="problems" class="section level1">
 <h1>Problems</h1>
-<p>For all of the problems that follow, your solutions should employ vector operations of the type we reviewed in lecture (dot product, vector addition, subtraction, etc). <strong>Your answers should not employ built-in functions like <code>mean()</code>, <code>var()</code>, <code>cov()</code>, etc</strong> but can include basic vector functions like <code>length()</code>.</p>
 <ol style="list-style-type: decimal">
 <li><p>For each of the data set listed below, do the following:</p>
 <ul>
@@ -149,11 +148,10 @@ $(document).ready(function () {
 <li><p>How much of the variation in the response variable can be “explained” by variation in the explanatory variable? [0.5 pt]</p></li>
 <li><p>Discuss whether you think the linear regression model is an appropriate way to model the relationship of interest. Point to features of the data, your visualizations, etc. to support your argument. [1 pt]</p></li>
 </ol></li>
-<li><p>Using vector arithmetic operations, write your own regression function (<code>vec.regression()</code>, for mean centered vectors in R [5 pts]</p>
+<li><p>Using <em>vector arithmetic operations</em>, write your own regression function (<code>vec.regression()</code>, in R. Your solutions should employ vector operations of the type we reviewed in lecture (dot product, vector addition, subtraction, etc). <em>Your answers should not employ built-in functions</em> like <code>mean()</code>, <code>var()</code>, <code>cov()</code>, etc but can include basic vector functions like <code>length()</code>.[5 pts]</p>
 <p>The function will take as it’s input two vectors, <span class="math inline">\(\vec{x}\)</span> and <span class="math inline">\(\vec{y}\)</span>. The function should return a list contining:</p>
 <ol style="list-style-type: lower-alpha">
-<li>The mean-centered versions of these vectors</li>
-<li>The regression coefficient <span class="math inline">\(b\)</span> in the mean centered regression equation <span class="math inline">\(\vec{\widehat{y}} = b\vec{x}\)</span></li>
+<li>The regression coefficients <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> in the regression equation <span class="math inline">\(\vec{\widehat{\mathbf{y}}} = a + b\vec{\mathbf{x}}\)</span></li>
 <li>The fitted (predicted) values of <span class="math inline">\(Y\)</span> for each observed value of <span class="math inline">\(X\)</span></li>
 <li>The residuals</li>
 <li>The coefficient of determination, <span class="math inline">\(R^2\)</span></li>

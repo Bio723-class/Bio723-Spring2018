@@ -22,7 +22,7 @@ For each of the problem below (except in cases where you are asked to discuss yo
 
 # Problems
 
-For all of the problems that follow, your solutions should employ vector operations of the type we reviewed in lecture (dot product, vector addition, subtraction, etc). **Your answers should not employ built-in functions like `mean()`, `var()`, `cov()`, etc** but can include basic vector functions like `length()`.
+
 
 
 1. For each of the data set listed below, do the following:
@@ -47,12 +47,11 @@ For all of the problems that follow, your solutions should employ vector operati
 
 
 
-1. Using vector arithmetic operations, write your own regression function (`vec.regression()`, for mean centered vectors in R [5 pts]
+1. Using _vector arithmetic operations_, write your own regression function (`vec.regression()`, in R. Your solutions should employ vector operations of the type we reviewed in lecture (dot product, vector addition, subtraction, etc). *Your answers should not employ built-in functions* like `mean()`, `var()`, `cov()`, etc but can include basic vector functions like `length()`.[5 pts]
 
     The function will take as it's input two vectors, $\vec{x}$ and $\vec{y}$. The function should return a list contining:
 
-      a. The mean-centered versions of these vectors
-      a. The regression coefficient $b$ in the mean centered regression equation $\vec{\widehat{y}} = b\vec{x}$
+      a. The regression coefficients $a$ and $b$ in the regression equation $\vec{\widehat{\mathbf{y}}} = a + b\vec{\mathbf{x}}$
       a. The fitted (predicted) values of $Y$ for each observed value of $X$
       a. The residuals
       a. The coefficient of determination, $R^2$
