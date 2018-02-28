@@ -1,0 +1,28 @@
+---
+title: "Bio 723, Problem Set 03"
+output:
+  html_document:
+    highlight: default
+    theme: readable
+    fig_caption: true
+    toc: yes
+    toc_depth: 4
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, prompt = FALSE, eval = FALSE, 
+                      warning = TRUE, comment=NA, cache = FALSE,
+                      fig.width = 6, fig.height = 4)
+```
+
+# Make your solutions computable
+
+For each of the problem below (except in cases where you are asked to discuss your interpretaion) write R code blocks that will **compute appropriate solutions**. A good rule of thumb for judging whether your solution is appropriately "computable" is to ask yourself "If I added additional observations to this data set, would my code still compute the right solution?"
+
+**Don't forget to include your library calls in your R Markdown document**
+
+
+
+# Problems
+
+1. Write a function, `multiple.regr(X,y)` that calculates the multiple regression of $y$ on multiple predictors, $x_1, x_2, \ldots x_k$ \emph{using matrix operations}. Your function should take two arguments, `X` and `y`, where `X` is a matrix representing the predictor variables and `y` is a vector for the outcome variable.  Your function should return a list containg the vector of regression coeffients, $b$, the coefficient of determination ($R^2$), and a vector, $\hat{y}$, representing the fitted values.  Refer to the slides to review the matrix  solution to the regression problem. [8 pts]

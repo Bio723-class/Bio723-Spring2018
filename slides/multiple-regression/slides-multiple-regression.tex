@@ -237,10 +237,12 @@ A\Inv{A} = \Inv{A}A = I
   \frametitle{Regression coefficients}
 
 \[
-\vec{b} = \left[ \begin{array}{c}
-a \\ b_1 \\ b_2 \\ \vdots \\ b_p \\
+\vec{b} = 
+\left[ 
+\begin{array}{ccccc}
+a & b_1 & b_2 & \cdots & b_p \\
 \end{array}
-\right] 
+\right]^T 
 \]
 
 
@@ -280,6 +282,30 @@ These are sometimes called ``loadings'' and should be examined in combination wi
 
 \end{frame}
 %===========================================================
+
+%===========================================================
+\begin{frame}
+  \frametitle{Coefficient of determination}
+
+
+The coefficient of determination, $R^2$, is the standard measure of the fraction of variation `explained' by the regression model. 
+
+This is equivalent to the cosine of angle between the outcome vector and the predicted outcome vector, squared.
+
+\medskip
+\[
+R^2 = (\cos \theta_{\vec{y},\vec{\widehat{y}}})^2 
+    = \frac{|\vec{\widehat{y}}|^2}{|\vec{y}|^2} 
+    = \frac{\vec{\widehat{y}} \cdot \vec{\widehat{y}}}{\vec{y} \cdot \vec{y}}
+\]
+
+Note that the vector formulation above assumes mean-centered $\vec{y}$ and $\vec{\widehat{y}}$.
+
+
+\end{frame}
+%===========================================================
+
+
 
 %===========================================================
 \begin{frame}

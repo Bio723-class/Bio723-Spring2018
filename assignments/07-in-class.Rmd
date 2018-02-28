@@ -1,0 +1,49 @@
+---
+title: "Bio 723, Lecture 07: In-class Assignment"
+output:
+  html_document:
+    highlight: default
+    theme: readable
+    fig_caption: true
+    toc: yes
+    toc_depth: 4
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, prompt = FALSE, eval = FALSE, 
+                      warning = TRUE, comment=NA, cache = FALSE,
+                      fig.width = 6, fig.height = 4)
+```
+
+# Make your solutions computable
+
+For each of the problem below (except in cases where you are asked to discuss your interpretaion) write R code blocks that will **compute appropriate solutions**. A good rule of thumb for judging whether your solution is appropriately "computable" is to ask yourself "If I added additional observations to this data set, would my code still compute the right solution?"
+
+# New packages
+
+The `HistData` package is required to have access to the data for this assignment. Install `HistData` via one of the standard mechanisms.
+
+
+# Problems
+
+
+The `GaltonFamilies` data set in the HistData package lists observations for heights of parents and their adult offspring for 934 children in 205 families, a famous data set collected by Francis Galton (Galton, F. (1886). Regression Towards Mediocrity in Hereditary Stature. Journal of the Anthropological Institute, 15, 246-263).
+
+1.  Load the `HistData` package and examine the `GaltonFamilies` data set.  Using `cowplot` create a single figure with three sub-figures: A) the distribution of height for all offspring; B) overlapping density plots giving the height distributions for male and female offspring separately; C) boxplots of height for male and female children separately [3 pts]
+
+1. Create a correlation matrix giving the correlations between father's height, mother's height, and child's height across the entire data set. How strong are the correlations between the three variables? [1 pt]
+
+1. Create correlation matrices giving the correlations between father's height, mother's height, and child's height *for male and female children separately*. How strong are the correlations between the three variables?  How does this compare to what you found when you consider correlations without regard to the sex of the offspring? [3 pts]
+
+1. Create two 3D scatter plots, one each for male and female offspring, showing the relationship between offspring height and mother and fathers height. [2 pts]
+
+1. For male offspring, fit a multiple regression of offspring height on father and mother's height.  Write out the predicted model with the corresponding coefficients in the form $\widehat{O}_{\mbox{male}} = a + b_1 F + b_2 M$ where $O$, $F$ and $M$ are offspring, father's, and mother's height. What fraction of the variation in offspring height does the model capture? [2 pts]
+
+1. For female offspring, fit a multiple regression of offspring height on father and mother's height.  Write out the predicted model with the corresponding coefficients in the form $\widehat{O}_{\mbox{female}} = a + b_1 F + b_2 M$ where $O$, $F$ and $M$ are offspring, father's, and mother's height.  What fraction of the variation in offspring height does the model capture? [2 pts]
+
+1. Create 2D plots of residuals of the regressions of female offspring height on mother's and father's height. How well does the data fit the assumptions of the linear regression model, based on your visual assessment of the residuals plots? [2 pt]
+
+1. Compare the coefficients of the predicted models for male and female offspring.  Which coefficients, if any, are similar for the two sexes? [1 pt]
+
+1. What is the predicted height of a male child, if the mother was 5 ft tall and the father was 6 ft tall?  What is the predicted hieght of a female child from the same parents? [2 pt]
+
