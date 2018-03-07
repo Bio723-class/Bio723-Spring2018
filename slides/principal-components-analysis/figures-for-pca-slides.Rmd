@@ -59,7 +59,9 @@ xy.pca <- prcomp(ctr.xy, retx=TRUE, scale. = FALSE, center=FALSE)
 pc1.slope <- xy.pca$rotation[2,1]/xy.pca$rotation[1,1]
 pc2.slope <- xy.pca$rotation[2,2]/xy.pca$rotation[1,2]
 
-pc1.vector <- cbind(pc1.scores, zeros)
+pc1.scores <- xy.pca$x[,"PC1"]
+
+pc1.vector <- cbind(pc1.scores, rep(0, length(pc1.scores)))
 projection.onto.PC1 <- as.data.frame(pc1.vector %*% xy.pca$rotation)
 names(projection.onto.PC1) <- c("X", "Y")
 
