@@ -1,0 +1,166 @@
+---
+title: "Simulating Sampling Distributions "
+author: "Paul M. Magwene"
+output: 
+  beamer_presentation:
+    colortheme: "beaver"
+    fonttheme: "structurebold"
+fontsize: "10pt"    
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message=FALSE)
+options(width=50)
+```
+
+
+
+## Population of interest
+
+```{r}
+library(tidyverse)
+set.seed(20171114)
+
+height.data <- read_csv("https://github.com/bio304-class/bio304-fall2017/raw/master/datasets/simulated-US-male-height.csv")
+
+ggplot(height.data, aes(x = height)) +
+  geom_histogram(aes(y = ..density..), bins=50, alpha=0.5) + 
+  geom_density() +
+  labs(x = "Height (cm)", title = "Distribution of Heights in the Population of Interest")
+```
+
+
+## A random sample of size 25
+
+```{r}
+true.values <- 
+  height.data %>% 
+  summarize(mean.height = mean(height), 
+            sd.height = sd(height))
+
+sample.a <-
+  height.data %>%
+  sample_n(25)
+
+sample.a %>%
+  ggplot(aes(x = height)) + 
+  geom_histogram(data=height.data, aes(x = height, y = ..density..), alpha=0.25, bins=50) + 
+  geom_histogram(aes(y = ..density..), fill = 'steelblue', alpha=0.75, bins=9) + 
+  geom_vline(xintercept = true.values$mean.height, linetype = "solid") + 
+  geom_vline(xintercept = mean(sample.a$height), linetype = "dashed") + 
+  labs(x = "Height (cm)", y = "Density", 
+       title = "Distribution of heights in the underlying population (grey) and for a single sample of size 25 (blue).\nThe true population mean is shown as a solid line, the sample mean is shown as a dashed line")
+```
+
+## A second random sample of size 25
+
+```{r}
+true.values <- 
+  height.data %>% 
+  summarize(mean.height = mean(height), 
+            sd.height = sd(height))
+
+sample.b <-
+  height.data %>%
+  sample_n(25)
+
+sample.b %>%
+  ggplot(aes(x = height)) + 
+  geom_histogram(data=height.data, aes(x = height, y = ..density..), alpha=0.25, bins=50) + 
+  geom_histogram(aes(y = ..density..), fill = 'steelblue', alpha=0.75, bins=9) + 
+  geom_vline(xintercept = true.values$mean.height, linetype = "solid") + 
+  geom_vline(xintercept = mean(sample.b$height), linetype = "dashed") + 
+  labs(x = "Height (cm)", y = "Density", 
+       title = "Distribution of heights in the underlying population (grey) and for a single sample of size 25 (blue).\nThe true population mean is shown as a solid line, the sample mean is shown as a dashed line")
+```
+
+## A third random sample of size 25
+
+```{r}
+true.values <- 
+  height.data %>% 
+  summarize(mean.height = mean(height), 
+            sd.height = sd(height))
+
+sample.c <-
+  height.data %>%
+  sample_n(25)
+
+sample.c %>%
+  ggplot(aes(x = height)) + 
+  geom_histogram(data=height.data, aes(x = height, y = ..density..), alpha=0.25, bins=50) + 
+  geom_histogram(aes(y = ..density..), fill = 'steelblue', alpha=0.75, bins=9) + 
+  geom_vline(xintercept = true.values$mean.height, linetype = "solid") + 
+  geom_vline(xintercept = mean(sample.c$height), linetype = "dashed") + 
+  labs(x = "Height (cm)", y = "Density", 
+       title = "Distribution of heights in the underlying population (grey) and for a single sample of size 25 (blue).\nThe true population mean is shown as a solid line, the sample mean is shown as a dashed line")
+```
+
+## Sampling distribution of the mean: Distribution of sample means across many random samples
+
+
+```{r}
+rsample.stats <- function(x, n, var.name) {
+  sample_x <- sample_n(x, n)
+  data_frame(sample.size = n, 
+             sample.mean = mean(sample_x[[var.name]]), 
+             sample.sd = sd(sample_x[[var.name]]))
+}
+
+df.samples.of.25 <-
+  rerun(500,  rsample.stats(height.data, 25, "height")) %>%
+  bind_rows()
+
+se.mean.table <-
+  df.samples.of.25 %>%
+  summarize(mean.of.means = mean(sample.mean),
+            sd.of.means = sd(sample.mean))
+
+ggplot(df.samples.of.25, aes(x = sample.mean, y = ..density..)) +
+  geom_histogram(bins=25, fill = 'firebrick', alpha=0.5) + 
+  geom_vline(xintercept = true.values$mean.height, linetype = "dashed") + 
+  geom_vline(xintercept = se.mean.table$mean.of.means + se.mean.table$sd.of.means,
+             linetype = 'dashed', color = 'red') +
+  geom_vline(xintercept = se.mean.table$mean.of.means - se.mean.table$sd.of.means,
+             linetype = 'dashed', color = 'red') +  
+  labs(x = "Sample means", y  = "Density",
+       title = "Distribution of mean heights for 500 samples of size 25")
+
+```
+
+
+
+## Comparing the population distribution to the sampling distribution of the mean
+
+
+```{r}
+ggplot(df.samples.of.25, aes(x = sample.mean, y = ..density..)) +
+  geom_histogram(data=height.data, aes(x = height, y = ..density..), alpha=0.25, bins=50) + 
+  geom_histogram(bins=50, fill = 'firebrick', alpha=0.5) + 
+  geom_vline(xintercept = true.values$mean.height, linetype = "dashed") + 
+  geom_vline(xintercept = se.mean.table$mean.of.means + se.mean.table$sd.of.means,
+             linetype = 'dashed', color = 'red') +
+  geom_vline(xintercept = se.mean.table$mean.of.means - se.mean.table$sd.of.means,
+             linetype = 'dashed', color = 'red') +    
+  labs(x = "Heights (gray) or Sample mean heights (red)", y  = "Density",
+       title = "Comparison of the population distribution of heights and\nthe sampling distribution of mean heights for samples of size 25")
+
+
+```
+
+
+## Sampling Distributions and Standard Errors
+
+
+### Sampling Distributions
+
+The **sampling distribution of a statistic of interest** is the probability distribution of a given statistic for samples of a given size. 
+
+### Standard Errors
+
+The **standard error of a statistic of interest** is the standard deviation of the sampling distribution for the given statistic
+
+### Uncertainty
+
+Together, the sampling distribution and associated standard error for a given statistic are key measures of the uncertainty in statistical estimates
+

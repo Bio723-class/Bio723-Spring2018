@@ -1,0 +1,53 @@
+---
+title: "Bio 723, Lecture 09: In-class Assignment"
+output:
+  html_document:
+    highlight: default
+    theme: readable
+    fig_caption: true
+    toc: yes
+    toc_depth: 4
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, prompt = FALSE, eval = FALSE, 
+                      warning = TRUE, comment=NA, cache = FALSE,
+                      fig.width = 6, fig.height = 4)
+```
+
+# Make your solutions computable
+
+For each of the problem below (except in cases where you are asked to discuss your interpretaion) write R code blocks that will **compute appropriate solutions**. A good rule of thumb for judging whether your solution is appropriately "computable" is to ask yourself "If I added additional observations to this data set, would my code still compute the right solution?"
+
+# Simulated data
+
+The following code reiterates the simulation of the height data we used in lecture:
+
+```{r, eval=FALSE}
+set.seed(20180321)
+mean.ht <- 175.7
+sd.ht <- 15.19
+height.data <- data_frame(height = rnorm(25000, mean = mean.ht, sd = sd.ht))
+```
+
+
+# Problems
+
+1. What are the "true" median and interquartile range (IQR) for the population represented by `height.data`? [1 pts]
+
+a. Rewrite the`rsample.stats()` (see lecture notes) function so that it calculates the median and IQR/1.349 of random samples from the input data frame, _in addition to_ the mean and standard deviation. [3 pts]
+
+    - NOTE: For normally distributed data the relationship between the standard deviation (SD) and the IQR is expected to be: IQR $\approx$ 1.349 $\times$ SD.  So by dividing the IQR by 1.349 we're putting the two statistics on similiar scales so that their sampling distributions can be fairly compared.
+
+a. Use your revised `rsample.stats` function to simulate the sampling distribution of the mean, standard deviation, median and IQR/1.349 for samples of size 10, 25, 50, 100, 250, and 500.  Generate 1000 replicates for each sample size. [3 pts]
+
+a. Generate a single plot comparing the sampling distribution of the mean and median for samples of size 10, using histograms.  Use `red` as the fill color the sampling distribution of the mean, and `blue` as the fill color for the sampling distibution of the median.  Make sure to set an appropriate `alpha` transparency value so both histograms can be clearly distinguished. [3 pts]
+
+a. Generate a single plot comparing the sampling distribution of the standard deviation and IQR/1.349 for samples of size 10, using histograms.  Use `red` as the fill color the sampling distribution of the mean, and `blue` as the fill color for the sampling distibution of the median.  Make sure to set an appropriate `alpha` transparency value so both histograms can be clearly distinguished.  [3 pts]
+
+a. Using your simulation results, generate a table giving the mean and standard error of the sampling distributions of both the mean and median.  Which measure of location has the smaller standard error for samples of a given size?  [2 pts]
+
+a. Using your simulation results, generate a table giving the mean and standard error of the sampling distributions of both the standard deviation and IQR/1.349.  Which measure of spread has the smaller standard error for samples of a given size?  [2 pts]
+
+
+
