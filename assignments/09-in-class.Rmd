@@ -43,7 +43,7 @@ a. Use your revised `rsample.stats` function to simulate the sampling distributi
 
 a. Generate a single plot comparing the sampling distribution of the mean and median for samples of size 10, using histograms.  Use `red` as the fill color the sampling distribution of the mean, and `blue` as the fill color for the sampling distibution of the median.  Make sure to set an appropriate `alpha` transparency value so both histograms can be clearly distinguished. [3 pts]
 
-a. Generate a single plot comparing the sampling distribution of the standard deviation and IQR/1.349 for samples of size 10, using histograms.  Use `red` as the fill color the sampling distribution of the mean, and `blue` as the fill color for the sampling distibution of the median.  Make sure to set an appropriate `alpha` transparency value so both histograms can be clearly distinguished.  [3 pts]
+a. Generate a single plot comparing the sampling distribution of the standard deviation and IQR/1.349 for samples of size 10, using histograms.  Use `red` as the fill color the sampling distribution of the standard deviation, and `blue` as the fill color for the sampling distibution of the IQR/1.349.  Make sure to set an appropriate `alpha` transparency value so both histograms can be clearly distinguished.  [3 pts]
 
 a. Using your simulation results, generate a table giving the mean and standard error of the sampling distributions of both the mean and median.  Which measure of location has the smaller standard error for samples of a given size?  [2 pts]
 
