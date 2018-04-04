@@ -25,21 +25,14 @@ For each of the problem below (except in cases where you are asked to discuss yo
 
 1. In the lecture on least squares regression, we looked at an example where we fit a model to predict male lion ages based on the coloration of their snouts. The data for this example are availab at this lin: [lion-noses.csv](https://github.com/bio304-class/bio304-fall2017/raw/master/datasets/ABD-lion-noses.csv)
 
-  a.  Fit the standard least squares regression to predict lions age (`ageInYears`) from the coloration of their nose (`proportionBlack`). [2 pts]
-  
-  b. Use jackknifing to estimate jackknife standard errors and 95% confidence intervals for the intercept and slope of the regression. Include a histogam of the jackknife distribution in your answer. [3 pts]
-  
-  c. Use bootstrapping to estimate bootstrap standard errors and 95% and 99% boostrap percentile confidence intervals for the intercept and slope of the regression. Include a histogram of the bootstrap distribution in your answer. [5 pts]
-  
-  d. Create a figure illustrating the 95% and 99% bootstrap percentile CIs for the linear regression of the lion data [5 pts]
+    a.  Fit the standard least squares regression to predict lions age (`ageInYears`) from the coloration of their nose (`proportionBlack`). [2 pts]
+    b. Use jackknifing to estimate jackknife standard errors and 95% confidence intervals for the intercept and slope of the regression. Include a histogam of the jackknife distribution in your answer. [3 pts]
+    c. Use bootstrapping to estimate bootstrap standard errors and 95% and 99% boostrap percentile confidence intervals for the intercept and slope of the regression. Include a histogram of the bootstrap distribution in your answer. [5 pts]
+    d. Create a figure illustrating the 95% and 99% bootstrap percentile CIs for the linear regression of the lion data [5 pts]
 
 
 2. In the lecture on PCA we introduced a multivariate data set we called `bioenv`. `bioenv` is available as a tab delimited file at this link: [bioenv.txt](https://github.com/Bio723-class/example-datasets/raw/master/bioenv.txt).  The data set includes five variables, labeled "a" to "e", that represents abundance information on five species of interest.
-
-  a. Calculate the principal components for the abundance data variables in the bioenv data set.  What proportion of variance of the data does the first PC capture? What proportion of variance of the data does the second PC capture?[3 pts]
-  
-  b.  Use bootstrapping to estimate standard errors and 95% confidence intervals for the proportion of variance explained by the first and second PCs of the bioenv abundance data. Include a histogram of the bootstrap distributions for both of these statistics in your answer. [5 pts]
-  
-  c. EXTRA CREDIT:  What is the angle (in radians) between the first principal component of the PCA of the bioenv data set and the vector representing the abundance of "Species A" in the original data set? [3 pts]
-  
-  d. EXTRA CREDIT:  Use bootstrapping to estimate the sampling distribution of the absolute value of the correlation between the first principal componenet and the vector representing the abundance of Species A.  Illustrate the bootstrap distribution of this statistic with a histogram. [3 pts]
+    a. Calculate the principal components for the abundance data variables in the bioenv data set.  What proportion of variance of the data does the first PC capture? What proportion of variance of the data does the second PC capture?[3 pts]
+    b.  Use bootstrapping to estimate standard errors and 95% confidence intervals for the proportion of variance explained by the first and second PCs of the bioenv abundance data. Include a histogram of the bootstrap distributions for both of these statistics in your answer. [5 pts]
+    c. EXTRA CREDIT:  What is the angle (in radians) between the first principal component of the PCA of the bioenv data set and the vector representing the abundance of "Species A" in the original data set? [3 pts]
+    d. EXTRA CREDIT:  Use bootstrapping to estimate the sampling distribution of the absolute value of the correlation between the first principal componenet and the vector representing the abundance of Species A.  Illustrate the bootstrap distribution of this statistic with a histogram. [3 pts]
