@@ -325,8 +325,19 @@ Limitations:
 
 \begin{block}{Basic Mechanics}
 Generate a large number of \textbf{bootstrap samples} by repeatedly resampling the original set of observations.  Approximate the standard error of $S$ based on the set of bootstrap samples. Estimate bias and/or confidence intervals based on bootstrap samples.
-
 \end{block}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Bootstrap: Schematic overview}
+
+\begin{figure}
+\begin{center}
+  \includegraphics[height=2.5in]{bootstrap-schematic-haukoos-etal-2005.pdf}
+\end{center}
+\caption{From Haukoos and Lewis 2005, doi:10.1197/j.aem.2004.11.018}
+\end{figure}
 
 \end{frame}
 %@nonl
@@ -370,7 +381,7 @@ Each sample is of length $n$ (size of original sample)
 
 
 \begin{frame}
-\frametitle{Bootstrap: Bootstrap  distribution}
+\frametitle{Bootstrap: Bootstrap distribution}
 
 \begin{itemize}
 \item The bootstrap distribution, $\widehat{\Theta}$, is an estimator of the sampling distribution of the statistic of interest. 
