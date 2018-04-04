@@ -36,9 +36,9 @@ For each of the problem below (except in cases where you are asked to discuss yo
 
 2. In the lecture on PCA we introduced a multivariate data set we called `bioenv`. `bioenv` is available as a tab delimited file at this link: [bioenv.txt](https://github.com/Bio723-class/example-datasets/raw/master/bioenv.txt).  The data set includes five variables, labeled "a" to "e", that represents abundance information on five species of interest.
 
-  a. Calculate the principal components for the abundance data variables in the bioenv data set.  What proportion of variance of the data does the first PC capture? [3 pts]
+  a. Calculate the principal components for the abundance data variables in the bioenv data set.  What proportion of variance of the data does the first PC capture? What proportion of variance of the data does the second PC capture?[3 pts]
   
-  b.  Use bootstrapping to estimate standard errors and 95% confidence intervals for the proportion of variance explained by the first PC of the bioenv abundance data. Include a histogram of the bootstrap distribution in your answer. [5 pts]
+  b.  Use bootstrapping to estimate standard errors and 95% confidence intervals for the proportion of variance explained by the first and second PCs of the bioenv abundance data. Include a histogram of the bootstrap distributions for both of these statistics in your answer. [5 pts]
   
   c. EXTRA CREDIT:  What is the angle (in radians) between the first principal component of the PCA of the bioenv data set and the vector representing the abundance of "Species A" in the original data set? [3 pts]
   
