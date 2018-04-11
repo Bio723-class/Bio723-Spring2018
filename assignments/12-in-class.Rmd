@@ -48,6 +48,8 @@ a. What is the value of the $F$ test statistic for this example? [1 pt]
 
 a. Find the p-value for your calculated $F$ statistic. [1 pt]
 
+a. Carry out ANOVA of the honeybee data using the regression approach, using *effect coding*. You should get identical values of the F-statistic and associated p-value to what you obtained above.  What are the coefficients of the regression, and what is their interpretation? [3 pts]
+
 a.  Use the Tukey HSD test to determine which pairs of groups are significantly different in their means. [2 pts]
 
 a. Using ggplot, create a figure that plots the mean and 95% confidence intervals of the mean of the response variable for each treatment group (see below). The `geom_pointrange` function will be useful for this task. [3 pts] 
@@ -57,8 +59,5 @@ a. EXTRA CREDIT: Use the `ggplot2::annotate` function (see http://ggplot2.tidyve
 ```{r, echo = FALSE, out.width = "350px", fig.align = "center", fig.cap = "Whitock & Schluter, Fig 15.4-1 -- Using symbols to indicate the outcome of Tukey-Kramer tests of all pairs of means. Two means are assigned a different symbol if they are significantly different (a vs. b) wherease means are assigned the same symbol (b in thise case) if they are not significantly different. ", eval = TRUE, results = "show"}
 knitr::include_graphics("./whitlock_15.4-1.jpg")
 ```
-
-a. Carry out ANOVA of the honeybee data using the regression approach, using *effect coding*. You should get identical values of the F-statistic and associated p-value to what you obtained above.  What are the coefficients of the regression, and what is their interpretation? [3 pts]
-
 
 
