@@ -1,0 +1,160 @@
+---
+title: "Recreating N. MacLeod's CVA example, More Matrix based"
+output: html_notebook
+---
+
+# About
+
+Norm MacLeod's [PaleoMath article on CVA](https://www.palass.org/sites/default/files/media/palaeomath_101/article_11/article_11.pdf) includes a nice simplified example where he does CVA on a reduced version of the iris data set, treating the CVA as a two-step rotation. Here I recreate this analysis in R.
+
+# Libraries
+
+```{r}
+library(MASS)
+library(tidyverse)
+library(magrittr)
+```
+
+# Analysis
+
+First generate the reduced iris data set -- only "Sepal" variables and just 25 specimens per species. NOTE: in the MacLeod article his figures read "Petal Length" and "Petal Width" but comparison of the data suggest he likely mislabeled the plots and the data is "Sepal Length" and "Sepal Width"
+
+
+```{r}
+# Take Sepal data for first 25 specimens of each species
+reduced.iris <-
+  iris %>%
+  select(-starts_with("Petal")) %>%  # drop petal variables
+  group_by(Species) %>%
+  do(head(., 25)) %>%
+  ungroup
+
+species <- reduced.iris$Species
+data <- reduced.iris %>% select(-Species) %>% as.matrix
+
+# center data
+data <- scale(data, center=TRUE, scale=FALSE)
+```
+  
+Plot data
+
+```{r}
+variate.plot <-
+  data %>% as.data.frame %>% mutate(Species = species) %>%
+  ggplot() +
+  geom_point(aes(x = Sepal.Length, y = Sepal.Width, color=Species)) +
+  coord_fixed()
+
+variate.plot
+```
+
+
+```{r}
+first.PCA <- prcomp(data)
+
+first.PCA.plot <- 
+  first.PCA$x %>% as.data.frame %>% mutate(Species = species) %>%
+  ggplot() +
+  geom_point(aes(x = PC1, y = PC2, color=Species)) +
+  coord_fixed()
+
+first.PCA.plot
+```
+
+```{r}
+
+scaled.scores <- first.PCA$x %*% diag(1/first.PCA$sdev)
+colnames(scaled.scores) <- c("scaled.PC1", "scaled.PC2")
+
+first.PCA.scaled.scores <- 
+  scaled.scores %>% as.data.frame %>%
+  mutate(Species = species)
+
+first.PCA.group.means <-
+  first.PCA.scaled.scores %>%
+  group_by(Species) %>%
+  summarize_all(mean)
+
+scaled.PCA.plot <-
+  ggplot() +
+  geom_point(aes(x=scaled.PC1, y = scaled.PC2, color=Species),
+             data = first.PCA.scaled.scores) + 
+  geom_point(aes(x=scaled.PC1, y = scaled.PC2, color=Species),
+             data = first.PCA.group.means, size=4, alpha=0.5) +
+  coord_fixed()
+
+scaled.PCA.plot  
+```
+
+```{r}
+second.PCA <- prcomp(first.PCA.group.means %>% select(-Species))
+
+pts <- matrix(c(1,0,-1,0,0,1,0,-1),byrow = TRUE, nrow=4)
+second.PCA.axes <- as.data.frame(pts %*% second.PCA$rotation)
+
+
+ggplot(first.PCA.group.means, aes(x=scaled.PC1, y=scaled.PC2)) +
+  geom_point(aes(shape=Species, color=Species), size=4, alpha=0.8) + 
+  geom_segment(aes(x=0,y=0,xend=PC1, yend=PC2),data=second.PCA.axes, inherit.aes = FALSE) +
+  coord_fixed()
+```
+
+
+```{r}
+
+CVA.scores <- scaled.scores %*% second.PCA$rotation
+colnames(CVA.scores) <- c("CV1", "CV2")
+
+
+CVA.scores %>% as.data.frame %>% mutate(Species = species) %>%
+  ggplot() + 
+  geom_point(aes(x=CV1, y = CV2, color=Species))
+
+```
+
+
+
+```{r}
+ggplot() + 
+  geom_point(aes(x=scaled.PC1, y=scaled.PC2, color=Species),
+             data=first.PCA.scaled.scores) +
+  geom_point(aes(x=scaled.PC1, y=scaled.PC2, color=Species), 
+             data=first.PCA.group.means, size=4, alpha=0.4) +
+  geom_segment(aes(x=0,y=0,xend=PC1, yend=PC2),data=second.PCA.axes,inherit.aes = FALSE) +
+  coord_fixed()
+```
+
+```{r}
+unscaled.CVA.axes <- 
+  as.matrix(second.PCA.axes) %*% diag(first.PCA$sdev) 
+
+
+unscaled.CVA.df <-
+  unscaled.CVA.axes %>%
+  as.data.frame
+
+names(unscaled.CVA.df) <- c("CV1", "CV2")
+
+
+first.PCA.plot+ 
+  geom_segment(aes(x=0,y=0,xend=CV1, yend=CV2),data=unscaled.CVA.df,inherit.aes = FALSE)
+```
+
+```{r}
+CVA.in.variate.axes <- unscaled.CVA.axes %*% solve(pca.I$rotation)
+
+CVA.in.variate.df <-
+  CVA.in.variate.axes %>%
+  as.data.frame
+
+names(CVA.in.variate.df) <- c("CV1", "CV2")
+
+variate.plot + 
+  geom_segment(aes(x=0,y=0,xend=CV1, yend=CV2),
+               data=CVA.in.variate.df,
+               inherit.aes = FALSE) +
+  coord_fixed()
+
+
+```
+
